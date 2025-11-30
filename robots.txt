@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://narendhard.github.io/BetterDiscord-Client/sitemap.xml
