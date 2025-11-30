@@ -2,91 +2,139 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>BetterDiscord Client – Premium Customization</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="knvztiS1Jpv-LCjef_wdscjR7NsRFLQDNczTy15e534" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <!-- SEO Title -->
+  <title>BetterDiscord Client — Enhanced UI, Themes & Custom Discord Experience</title>
+
+  <!-- SEO Description -->
   <meta
     name="description"
-    content="BetterDiscord Client – a third-party customization client for Discord with refined UI, themes, and enhanced user experience."
+    content="BetterDiscord Client is a third-party UI enhancement client for BetterDiscord users. Enjoy a cleaner Discord interface, refined themes, smoother navigation and a modern premium experience."
   />
+
+  <!-- Keywords (легкий SEO буст) -->
+  <meta
+    name="keywords"
+    content="BetterDiscord, BetterDiscord client, Better Discord UI, Discord custom client, Discord themes, Discord UI customization, BetterDiscord enhancement"
+  />
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://narendhard.github.io/BetterDiscord-Client/">
+
+  <!-- OpenGraph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="BetterDiscord Client — Premium UI Enhancer for BetterDiscord">
+  <meta property="og:description" content="Modern UI customization, refined themes and smoother everyday Discord experience built on top of BetterDiscord.">
+  <meta property="og:url" content="https://narendhard.github.io/BetterDiscord-Client/">
+  <meta property="og:image" content="https://narendhard.github.io/BetterDiscord-Client/assets/Preview.png">
+
+  <!-- Twitter Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="BetterDiscord Client — Premium UI Enhancer">
+  <meta name="twitter:description" content="Enhanced UI, themes and smoother Discord experience for BetterDiscord users.">
+  <meta name="twitter:image" content="https://narendhard.github.io/BetterDiscord-Client/assets/Preview.png">
+
+  <!-- Theme Color -->
+  <meta name="theme-color" content="#4f46e5">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="assets/logo.png">
+
+  <!-- Structured Data for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "BetterDiscord Client",
+    "operatingSystem": "Windows, macOS",
+    "applicationCategory": "Utility",
+    "description": "A modern third-party UI enhancement client for BetterDiscord that provides cleaner layout, refined themes and smoother Discord experience.",
+    "url": "https://narendhard.github.io/BetterDiscord-Client/",
+    "image": "https://narendhard.github.io/BetterDiscord-Client/assets/Preview.png",
+    "softwareVersion": "6.23",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+
   <style>
     :root {
       --bg: #050816;
-      --bg-alt: #07091a;
+      --bg-alt: #020617;
       --accent: #6366f1;
-      --accent-soft: rgba(99, 102, 241, 0.2);
+      --accent-soft: rgba(99, 102, 241, 0.18);
       --accent-strong: #4f46e5;
-      --text: #f9fafb;
+      --text: #e5e7f0;
       --muted: #9ca3af;
-      --card: rgba(15, 23, 42, 0.86);
-      --border: rgba(148, 163, 184, 0.25);
-      --danger: #f97373;
-      --shadow-soft: 0 18px 60px rgba(15, 23, 42, 0.9);
-      --radius-xl: 24px;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --glass: rgba(15, 23, 42, 0.86);
+      --shadow-deep: 0 26px 70px rgba(0, 0, 0, 0.75);
+
+      --radius-xl: 26px;
+      --radius-lg: 18px;
       --radius-pill: 999px;
-      --transition-fast: 180ms ease-out;
-      --transition-slow: 300ms ease;
+
+      --t-fast: 0.2s ease-out;
+      --t-slow: 0.6s ease;
     }
 
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
+      box-sizing: border-box;
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
-        "Inter", sans-serif;
-      background: radial-gradient(circle at top, #111827 0, #020617 42%, #020617 100%);
-      color: var(--text);
-      min-height: 100vh;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-      position: relative;
-      overflow-x: hidden;
-    }
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+  background: linear-gradient(160deg, #070b16 0%, #020617 70%);
+  color: var(--text);
+  line-height: 1.6;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
 
-    /* Subtle background orbs */
-    .bg-orb {
+
+    /* Subtle background orbs with parallax */
+    .orb {
       position: fixed;
       border-radius: 999px;
       filter: blur(70px);
-      opacity: 0.65;
-      z-index: -2;
+      opacity: 0.5;
       pointer-events: none;
+      z-index: -2;
+      transform: translate3d(0, 0, 0);
+      will-change: transform;
     }
-    .bg-orb.orb-1 {
+
+    .orb.orb-blue {
       width: 420px;
       height: 420px;
-      background: radial-gradient(circle, rgba(56, 189, 248, 0.9), transparent);
-      top: -80px;
-      left: -40px;
-      animation: float-slow-1 18s infinite alternate ease-in-out;
+      background: radial-gradient(circle, rgba(56, 189, 248, 0.95), transparent);
+      top: -120px;
+      left: -80px;
     }
-    .bg-orb.orb-2 {
+
+    .orb.orb-purple {
       width: 520px;
       height: 520px;
-      background: radial-gradient(circle, rgba(129, 140, 248, 0.85), transparent);
-      bottom: -140px;
+      background: radial-gradient(circle, rgba(168, 85, 247, 0.8), transparent);
+      bottom: -160px;
       right: -60px;
-      animation: float-slow-2 22s infinite alternate ease-in-out;
     }
 
-    @keyframes float-slow-1 {
-      from { transform: translate3d(0, 0, 0); }
-      to { transform: translate3d(40px, 60px, 0); }
-    }
-    @keyframes float-slow-2 {
-      from { transform: translate3d(0, 0, 0); }
-      to { transform: translate3d(-50px, -40px, 0); }
-    }
-
-    /* Layout */
     .page {
       max-width: 1120px;
       margin: 0 auto;
-      padding: 32px 20px 80px;
+      padding: 32px 20px 72px;
     }
 
     header {
@@ -94,112 +142,103 @@
       align-items: center;
       justify-content: space-between;
       gap: 16px;
-      margin-bottom: 28px;
+      margin-bottom: 40px;
     }
 
-    .logo-wrap {
+    .header-left {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 14px;
     }
 
-    .logo-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 14px; /* 14px = мягкие SaaS углы */
-  overflow: hidden;
-  background: rgba(255,255,255,0.03);
-  box-shadow: 0 6px 22px rgba(0,0,0,0.45), 0 0 12px rgba(99,102,241,0.35);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(10px);
-}
-
-.logo-icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-
-
-    .logo-icon::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        135deg,
-        rgba(99, 102, 241, 0.3),
-        rgba(59, 130, 246, 0.1),
-        rgba(236, 72, 153, 0.14)
-      );
-      mix-blend-mode: soft-light;
+    .logo-shell {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.9));
+      padding: 4px;
+      box-shadow:
+        0 16px 36px rgba(0, 0, 0, 0.7),
+        0 0 18px rgba(129, 140, 248, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .logo-title {
-      font-size: 1.05rem;
+    .logo-shell img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .project-meta-title {
+      font-size: 1.1rem;
       font-weight: 600;
       letter-spacing: 0.02em;
-      color: #e5e7eb;
+      color: #f9fafb;
+      margin-bottom: 4px;
     }
 
-    .chip {
-      padding: 5px 11px;
-      border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      font-size: 0.75rem;
-      color: var(--muted);
-      background: radial-gradient(circle at top left, #111827, rgba(15, 23, 42, 0.85));
-      backdrop-filter: blur(18px);
+    .project-badge {
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.8));
+      backdrop-filter: blur(16px);
     }
 
-    .chip-dot {
-      width: 6px;
-      height: 6px;
+    .dot-live {
+      width: 7px;
+      height: 7px;
       border-radius: 999px;
-      background: radial-gradient(circle, #22c55e, #15803d);
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.25);
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
     }
 
     nav {
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
       font-size: 0.85rem;
     }
 
     nav a {
       color: var(--muted);
       text-decoration: none;
-      transition: color var(--transition-fast), opacity var(--transition-fast);
-      opacity: 0.85;
+      opacity: 0.9;
+      transition: color var(--t-fast), opacity var(--t-fast), transform var(--t-fast);
     }
 
     nav a:hover {
-      color: #e5e7eb;
+      color: #f9fafb;
       opacity: 1;
+      transform: translateY(-1px);
     }
 
     /* Hero */
     .hero {
       display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.9fr);
-      gap: 16px;
+      grid-template-columns: minmax(0, 1.18fr) minmax(0, 0.95fr);
+      gap: 24px;
       align-items: center;
-      margin-top: 6px;
+      margin-bottom: 72px;
     }
 
     .hero-main {
-      animation: fade-up 800ms var(--transition-slow) forwards;
       opacity: 0;
-      transform: translateY(16px);
+      transform: translateY(14px);
+      animation: hero-in 700ms var(--t-slow) forwards;
     }
 
-    @keyframes fade-up {
+    @keyframes hero-in {
       to {
         opacity: 1;
         transform: translateY(0);
@@ -210,45 +249,39 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      padding: 3px 10px;
+      padding: 4px 10px;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      background: linear-gradient(
-        120deg,
-        rgba(15, 23, 42, 0.9),
-        rgba(30, 64, 175, 0.8)
-      );
-      font-size: 0.72rem;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: linear-gradient(115deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.9));
+      font-size: 0.75rem;
       color: var(--muted);
-      margin-bottom: 10px;
+      margin-bottom: 12px;
     }
 
-    .hero-kicker span.accent {
+    .hero-kicker span.highlight {
       color: #e5e7eb;
       font-weight: 500;
     }
 
     .hero-title {
       font-size: clamp(2.6rem, 4vw, 3.3rem);
-      font-weight: 700;
+      line-height: 1.1;
       letter-spacing: 0.02em;
-      margin-bottom: 6px;
-      line-height: 1.15;
+      margin-bottom: 10px;
     }
 
-    .hero-title span.gradient {
-      background: linear-gradient(120deg, #a5b4fc, #60a5fa, #f472b6);
+    .hero-title span.accent {
+      background: linear-gradient(125deg, #a5b4fc, #60a5fa, #f472b6);
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
     }
 
     .hero-subtitle {
-      font-size: 0.93rem;
+      font-size: 0.95rem;
       color: var(--muted);
-      max-width: 30rem;
-      margin-bottom: 16px;
-      line-height: 1.55;
+      max-width: 32rem;
+      margin-bottom: 18px;
     }
 
     .hero-subtitle strong {
@@ -259,9 +292,9 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 10px;
       align-items: center;
-      margin-bottom: 10px;
+      margin-bottom: 14px;
     }
 
     .btn {
@@ -269,199 +302,163 @@
       align-items: center;
       justify-content: center;
       gap: 8px;
-      padding: 10px 19px;
+      padding: 11px 20px;
       border-radius: var(--radius-pill);
       border: 1px solid transparent;
       font-size: 0.88rem;
       font-weight: 500;
-      cursor: pointer;
       text-decoration: none;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-        background var(--transition-fast), border-color var(--transition-fast),
-        color var(--transition-fast), opacity var(--transition-fast);
-      will-change: transform;
+      cursor: pointer;
+      transition:
+        transform var(--t-fast),
+        box-shadow var(--t-fast),
+        background var(--t-fast),
+        border-color var(--t-fast),
+        color var(--t-fast),
+        opacity var(--t-fast);
+      will-change: transform, box-shadow;
     }
 
     .btn-primary {
-      background: linear-gradient(135deg, var(--accent-strong), #1d4ed8);
+      background: linear-gradient(135deg, var(--accent-strong), #2563eb);
       color: #f9fafb;
-      box-shadow: 0 16px 40px rgba(37, 99, 235, 0.6);
+      box-shadow: 0 18px 45px rgba(37, 99, 235, 0.7);
     }
 
     .btn-primary:hover {
-      transform: translateY(-1px) scale(1.01);
-      box-shadow: 0 20px 55px rgba(37, 99, 235, 0.85);
+      transform: translateY(-2px) scale(1.01);
+      box-shadow: 0 24px 60px rgba(37, 99, 235, 0.9);
     }
 
     .btn-ghost {
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.95), #020617);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.97), #020617);
       color: var(--muted);
-      border-color: rgba(148, 163, 184, 0.5);
+      border-color: rgba(148, 163, 184, 0.6);
     }
 
     .btn-ghost:hover {
       color: #e5e7eb;
-      border-color: rgba(148, 163, 184, 0.9);
+      border-color: rgba(148, 163, 184, 1);
       transform: translateY(-1px);
-      box-shadow: 0 14px 35px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.9);
     }
 
     .hero-meta {
-      font-size: 0.74rem;
+      font-size: 0.8rem;
       color: var(--muted);
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
-      margin-top: 4px;
     }
 
-    .hero-meta-pill {
-      padding: 4px 9px;
+    .meta-pill {
+      padding: 4px 10px;
       border-radius: var(--radius-pill);
-      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.95), #020617);
-      border: 1px solid rgba(55, 65, 81, 0.7);
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.94), #020617);
       display: inline-flex;
       align-items: center;
       gap: 6px;
     }
 
-    .dot {
+    .meta-dot {
       width: 6px;
       height: 6px;
       border-radius: 999px;
       background: #22c55e;
     }
 
-    /* 3D WEB3 premium preview */
+    /* Hero screenshot card */
     .hero-preview-wrap {
-      animation: fade-up 900ms var(--transition-slow) forwards;
       opacity: 0;
       transform: translateY(18px);
-      display: flex;
-      justify-content: flex-end;
+      animation: hero-in 850ms var(--t-slow) forwards;
     }
 
-    .hero-preview-3d {
-      width: 100%;
-      max-width: 88%;
-      border-radius: 26px;
-      overflow: hidden;
+    .hero-preview-frame {
       position: relative;
-      background: linear-gradient(135deg, rgba(79, 70, 229, 0.25), rgba(56, 189, 248, 0.25));
-      border: 1px solid rgba(148, 163, 184, 0.3);
-      box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.55),
-        0 0 40px rgba(99, 102, 241, 0.35);
-      transform: rotateY(-16deg) rotateX(3deg) translateY(0);
-      transition: transform 0.6s ease, box-shadow 0.6s ease, border-color 0.6s ease;
-      cursor: pointer;
-      perspective: 1400px;
-      margin-top: -10px;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, #111827, #020617);
+      border: 1px solid var(--border-subtle);
+      padding: 10px;
+      box-shadow: var(--shadow-deep);
+      overflow: hidden;
+      transform: perspective(1300px) rotateY(-15deg) rotateX(4deg);
+      transition: transform var(--t-slow), box-shadow var(--t-slow), border-color var(--t-slow);
     }
 
-    .preview-img-3d {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 26px;
-      transform: scale(1.04);
-      transition: transform 0.6s ease;
-    }
-
-    .preview-glow {
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(
-            circle at 80% 10%,
-            rgba(168, 85, 247, 0.28),
-            transparent 60%
-          ),
-          radial-gradient(
-            circle at 20% 90%,
-            rgba(59, 130, 246, 0.25),
-            transparent 70%
-          );
-      pointer-events: none;
-      opacity: 0.6;
-      mix-blend-mode: screen;
-    }
-
-    .hero-preview-3d::before {
+    .hero-preview-frame::before {
       content: "";
       position: absolute;
       inset: -40%;
       background: linear-gradient(
         120deg,
         transparent 0%,
-        rgba(248, 250, 252, 0.18) 45%,
-        transparent 70%
+        rgba(248, 250, 252, 0.12) 48%,
+        transparent 75%
       );
-      transform: translateX(-60%);
-      opacity: 0.0;
       mix-blend-mode: screen;
+      opacity: 0;
+      transform: translateX(-50%);
       pointer-events: none;
-      animation: glare 8s ease-in-out infinite;
+      animation: glare-pass 9s ease-in-out infinite;
     }
 
-    @keyframes glare {
+    @keyframes glare-pass {
       0%, 55% {
-        transform: translateX(-60%);
         opacity: 0;
+        transform: translateX(-60%);
       }
       65% {
-        opacity: 0.9;
-      }
-      80%, 100% {
-        transform: translateX(40%);
-        opacity: 0;
-      }
-    }
-
-    .hero-preview-3d:hover {
-      transform: rotateY(-5deg) rotateX(1deg) scale(1.015);
-      box-shadow:
-        0 40px 85px rgba(0, 0, 0, 0.65),
-        0 0 55px rgba(129, 140, 248, 0.55);
-      border-color: rgba(168, 85, 247, 0.6);
-    }
-
-    .hero-preview-3d:hover .preview-img-3d {
-      transform: scale(1.08);
-    }
-
-    @keyframes web3softfloat {
-      0% {
-        transform: rotateY(-16deg) rotateX(3deg) translateY(0);
+        opacity: 1;
       }
       100% {
-        transform: rotateY(-12deg) rotateX(4deg) translateY(-6px);
+        opacity: 0;
+        transform: translateX(35%);
       }
     }
 
-    .hero-preview-3d {
-      animation: web3softfloat 6s ease-in-out infinite alternate;
+    .hero-preview-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: calc(var(--radius-xl) - 10px);
+      transform: scale(1.02);
+      transition: transform var(--t-slow);
+    }
+
+    .hero-preview-frame:hover {
+      transform: perspective(1300px) rotateY(-6deg) rotateX(2deg) translateY(-4px) scale(1.01);
+      box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.8),
+        0 0 50px rgba(129, 140, 248, 0.4);
+      border-color: rgba(129, 140, 248, 0.6);
+    }
+
+    .hero-preview-frame:hover .hero-preview-img {
+      transform: scale(1.06);
     }
 
     /* Sections */
     .section {
-      margin-top: 48px;
+      margin-top: 50px;
     }
 
     .section-header {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
     }
 
     .section-kicker {
-      font-size: 0.75rem;
+      font-size: 0.78rem;
       text-transform: uppercase;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.18em;
       color: var(--muted);
       margin-bottom: 4px;
     }
 
     .section-title {
-      font-size: 1.3rem;
+      font-size: 1.45rem;
       font-weight: 600;
       color: #e5e7eb;
     }
@@ -469,57 +466,39 @@
     .section-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 16px;
+      gap: 18px;
       margin-top: 14px;
     }
 
     .feature-card {
-      background: var(--card);
-      border-radius: 18px;
-      border: 1px solid rgba(148, 163, 184, 0.35);
-      padding: 14px 14px 12px;
-      box-shadow: 0 12px 35px rgba(15, 23, 42, 0.8);
-      position: relative;
-      overflow: hidden;
-      transition: transform var(--transition-fast), box-shadow var(--transition-fast),
-        border-color var(--transition-fast), background var(--transition-fast);
-    }
-
-    .feature-card::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at top right, rgba(79, 70, 229, 0.18), transparent 60%);
-      opacity: 0;
-      transition: opacity var(--transition-slow);
-      pointer-events: none;
+      background: var(--glass);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 16px 16px 14px;
+      backdrop-filter: blur(18px);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.8);
+      transition: transform var(--t-fast), box-shadow var(--t-fast), border-color var(--t-fast), background var(--t-fast);
+      font-size: 0.86rem;
+      color: var(--muted);
     }
 
     .feature-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 18px 50px rgba(15, 23, 42, 0.95);
-      border-color: rgba(129, 140, 248, 0.65);
-      background: radial-gradient(circle at top left, #020617, #020617 30%, #020617 100%);
-    }
-
-    .feature-card:hover::after {
-      opacity: 1;
+      box-shadow: 0 22px 60px rgba(15, 23, 42, 0.95);
+      border-color: rgba(129, 140, 248, 0.7);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.98), #020617);
     }
 
     .feature-icon {
-      font-size: 1.2rem;
+      font-size: 1.15rem;
       margin-bottom: 6px;
     }
 
     .feature-title {
-      font-size: 0.95rem;
+      font-size: 0.96rem;
       font-weight: 500;
+      color: #e5e7eb;
       margin-bottom: 4px;
-    }
-
-    .feature-text {
-      font-size: 0.8rem;
-      color: var(--muted);
     }
 
     /* Disclaimer */
@@ -528,8 +507,8 @@
       font-size: 0.78rem;
       color: var(--muted);
       padding: 14px 14px;
-      border-radius: 16px;
-      border: 1px solid rgba(248, 250, 252, 0.04);
+      border-radius: 18px;
+      border: 1px solid rgba(248, 250, 252, 0.06);
       background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), #020617);
     }
 
@@ -537,28 +516,29 @@
       color: #e5e7eb;
     }
 
-    /* Footer */
     footer {
-      margin-top: 40px;
-      font-size: 0.78rem;
+      margin-top: 38px;
+      font-size: 0.8rem;
       color: var(--muted);
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       align-items: center;
       justify-content: space-between;
-      opacity: 0.86;
+      opacity: 0.9;
     }
 
     footer a {
       color: #9ca3af;
       text-decoration: none;
-      border-bottom: 1px dashed rgba(148, 163, 184, 0.5);
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
+      transition: color var(--t-fast), border-color var(--t-fast);
     }
 
     footer a:hover {
       color: #e5e7eb;
       border-bottom-style: solid;
+      border-color: #e5e7eb;
     }
 
     /* Responsive */
@@ -566,19 +546,24 @@
       .hero {
         grid-template-columns: minmax(0, 1fr);
       }
+
       header {
         flex-direction: column;
         align-items: flex-start;
+        gap: 12px;
       }
+
+      nav {
+        display: none;
+      }
+
       .hero-preview-wrap {
         order: -1;
-        margin-bottom: 20px;
-        justify-content: center;
+        margin-bottom: 18px;
       }
-      .hero-preview-3d {
-        max-width: 100%;
-        margin-top: 0;
-        transform: none !important;
+
+      .hero-preview-frame {
+        transform: none;
         animation: none;
       }
     }
@@ -587,42 +572,44 @@
       .page {
         padding-inline: 16px;
       }
+
       .section-grid {
         grid-template-columns: minmax(0, 1fr);
       }
-      nav {
-        display: none;
-      }
+
       .hero-actions {
         flex-direction: column;
         align-items: flex-start;
       }
+
       .btn {
         width: 100%;
         justify-content: center;
       }
     }
+
   </style>
 </head>
 <body>
-  <!-- background orbs -->
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
+  <!-- background orbs with parallax -->
+  <div class="orb orb-blue"></div>
+  <div class="orb orb-purple"></div>
 
   <div class="page">
     <header>
-      <div class="logo-wrap">
-  <div class="logo-icon">
-    <img src="assets/logo.png" alt="BetterDiscord Logo">
-  </div>
-  <div>
-    <div class="logo-title">BetterDiscord Client</div>
-    <div class="chip">
-      <span class="chip-dot"></span>
-      <span>Third-party customization client</span>
-    </div>
-  </div>
-</div>
+      <div class="header-left">
+        <div class="logo-shell">
+          <img src="assets/logo.png" alt="BetterDiscord Client Logo">
+        </div>
+        <div>
+          <div class="project-meta-title">BetterDiscord Client</div>
+          <div class="project-badge">
+            <span class="dot-live"></span>
+            <span>Third-party UI enhancement client for BetterDiscord</span>
+          </div>
+        </div>
+      </div>
+
       <nav>
         <a href="#features">Features</a>
         <a href="#download">Download</a>
@@ -636,22 +623,24 @@
       <section class="hero">
         <div class="hero-main">
           <div class="hero-kicker">
-            <span>Refined Discord experience ·</span>
-            <span class="accent">Visual customization & smooth UX</span>
+            <span>Enhanced Discord interface ·</span>
+            <span class="highlight">Built on top of BetterDiscord</span>
           </div>
+
           <h1 class="hero-title">
-            Premium-grade <span class="gradient">BetterDiscord Client</span> for your setup.
+            <span class="accent">Premium BetterDiscord Client</span><br>
+            for a cleaner, modern Discord UI.
           </h1>
+
           <p class="hero-subtitle">
-            A community-driven, third-party customization client for Discord focused on
-            <strong>clean design</strong>, <strong>refined themes</strong> and
-            <strong>smoother everyday use</strong> —
-            without compromising simplicity.
+            BetterDiscord Client is a third-party <strong>UI enhancement tool</strong> created for
+            BetterDiscord users who want a <strong>cleaner layout</strong>, <strong>refined themes</strong>
+            and <strong>smoother everyday Discord experience</strong> without unnecessary clutter.
           </p>
 
           <div class="hero-actions" id="download">
             <a
-              href="https://cdn.discordapp.com/attachments/1442103051384000583/1443804810070720562/BetterDiscord_6.23.zip?ex=692a6783&is=69291603&hm=5ec64ba09033118e1d6adf52769112afdac799c0522476c7c515ccbd8acff475"
+              href="https://github.com/Narendhard/BetterDiscord-Client/releases/download/v6.23/BetterDiscord.6.23.zip"
               class="btn btn-primary"
             >
               ⬇ Download BetterDiscord Client
@@ -667,18 +656,21 @@
           </div>
 
           <div class="hero-meta">
-            <div class="hero-meta-pill">
-              <span class="dot"></span>
-              <span>Active development</span>
+            <div class="meta-pill">
+              <span class="meta-dot"></span>
+              <span>Optimized for BetterDiscord themes & custom UI.</span>
             </div>
-            <span>Optimized for custom UI, themes & better daily use.</span>
+            <span>Third-party client · independent from Discord Inc.</span>
           </div>
         </div>
 
         <div class="hero-preview-wrap">
-          <div class="hero-preview-3d">
-            <img src="assets/Preview.png" alt="BetterDiscord Client Preview" class="preview-img-3d">
-            <div class="preview-glow"></div>
+          <div class="hero-preview-frame">
+            <img
+              src="assets/Preview.png"
+              alt="BetterDiscord Client interface preview"
+              class="hero-preview-img"
+            />
           </div>
         </div>
       </section>
@@ -686,61 +678,61 @@
       <section class="section" id="features">
         <div class="section-header">
           <div class="section-kicker">Highlights</div>
-          <h2 class="section-title">Designed for a premium Discord workflow</h2>
+          <h2 class="section-title">Designed for a premium BetterDiscord workflow</h2>
         </div>
 
         <div class="section-grid">
           <article class="feature-card">
             <div class="feature-icon">🎨</div>
-            <h3 class="feature-title">Clean visual customization</h3>
-            <p class="feature-text">
-              Refined appearance with support for custom themes, layout tweaks and small visual
-              touches that keep Discord feeling premium instead of cluttered.
+            <h3 class="feature-title">Modern Discord UI customization</h3>
+            <p>
+              Cleaner Discord interface with refined layouts, improved spacing, visual hierarchy and
+              theme-friendly components that fit naturally into the BetterDiscord ecosystem.
             </p>
           </article>
 
           <article class="feature-card">
             <div class="feature-icon">⚡</div>
-            <h3 class="feature-title">Smooth & responsive</h3>
-            <p class="feature-text">
-              Focus on smooth transitions, snappy navigation and a responsive interface that keeps up
-              with busy servers and everyday multitasking.
+            <h3 class="feature-title">Smooth & performance-focused</h3>
+            <p>
+              Snappy transitions, responsive navigation and an interface tuned to feel light even on
+              busy servers — designed for people who stay in Discord all day.
             </p>
           </article>
 
           <article class="feature-card">
             <div class="feature-icon">🧩</div>
-            <h3 class="feature-title">BetterDiscord ecosystem</h3>
-            <p class="feature-text">
-              Built to work alongside the BetterDiscord customization ecosystem, with support for
-              user-created themes and enhancements, where compatible.
+            <h3 class="feature-title">Built around BetterDiscord</h3>
+            <p>
+              Works alongside BetterDiscord customization, theme engines and UI extensions where
+              compatible, so you can extend visuals without sacrificing clarity.
             </p>
           </article>
 
           <article class="feature-card">
             <div class="feature-icon">🛡️</div>
-            <h3 class="feature-title">User-first approach</h3>
-            <p class="feature-text">
-              Convenience options, clear organization and small quality-of-life details designed to
-              make daily communication and server management more enjoyable.
+            <h3 class="feature-title">User-first experience</h3>
+            <p>
+              Focus on clarity, legible typography and subtle details that make long Discord sessions,
+              server management and everyday conversations feel more comfortable.
             </p>
           </article>
 
           <article class="feature-card">
             <div class="feature-icon">🧭</div>
-            <h3 class="feature-title">Minimal, focused UI</h3>
-            <p class="feature-text">
-              A layout that reduces noise and visual overload, keeping attention on what matters:
-              conversations, channels and the communities you care about.
+            <h3 class="feature-title">Minimal, focused layout</h3>
+            <p>
+              Reduced visual noise and distractions so attention stays on channels, calls and
+              communities — not on the interface itself.
             </p>
           </article>
 
           <article class="feature-card">
             <div class="feature-icon">🔁</div>
-            <h3 class="feature-title">Built for everyday use</h3>
-            <p class="feature-text">
-              Thoughtful defaults, sane configuration and an experience tailored for people who live
-              in Discord daily — from friends to creators and moderators.
+            <h3 class="feature-title">Made for daily Discord use</h3>
+            <p>
+              A design that supports creators, friends, moderators and power users who rely on
+              Discord as a primary communication platform every single day.
             </p>
           </article>
         </div>
@@ -748,17 +740,22 @@
 
       <section class="disclaimer">
         <strong>Disclaimer.</strong>
-        BetterDiscord Client is an independent, third-party customization client and is not
-        affiliated with, endorsed by, or associated with Discord Inc. Users install and use it at
-        their own discretion and should always follow Discord’s Terms of Service.
+        BetterDiscord Client is an independent, third-party UI enhancement client created for
+        users of BetterDiscord. It is not affiliated with, endorsed by, or associated with Discord Inc.
+        Users should follow Discord’s Terms of Service and install any third-party tools at their own
+        discretion.
       </section>
     </main>
 
     <footer>
-      <span>© <span id="year"></span> BetterDiscord Client · Crafted for customization-focused users.</span>
+      <span>© <span id="year"></span> BetterDiscord Client · Designed for customization-focused Discord users.</span>
       <span>
         Repo:
-        <a href="https://github.com/Narendhard/BetterDiscord-Client" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/Narendhard/BetterDiscord-Client"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           github.com/Narendhard/BetterDiscord-Client
         </a>
       </span>
@@ -766,24 +763,18 @@
   </div>
 
   <script>
-    // set current year in footer
+    // current year
     document.getElementById("year").textContent = new Date().getFullYear();
 
-    // smooth scroll for in-page anchors
-    document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-      link.addEventListener("click", function (e) {
-        var targetId = this.getAttribute("href").slice(1);
-        var target = document.getElementById(targetId);
-        if (target) {
-          e.preventDefault();
-          window.scrollTo({
-            top: target.offsetTop - 60,
-            behavior: "smooth"
-          });
-        }
+    // simple parallax for background orbs
+    const orbs = document.querySelectorAll('.orb');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY || window.pageYOffset;
+      orbs.forEach((orb, index) => {
+        const speed = index === 0 ? 0.06 : 0.03;
+        orb.style.transform = `translate3d(0, ${y * speed}px, 0)`;
       });
     });
   </script>
 </body>
 </html>
-
