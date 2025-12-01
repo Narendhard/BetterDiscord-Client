@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+<title>Premium Discord Themes — BetterDiscord Client</title>
+
+<meta name="description"
+  content="Explore Azurite, BlackPerl, OperaGX and Snowify — premium Discord UI themes included inside the BetterDiscord Client. Fully animated 3D previews and modern Web3 UI design." />
+
+<link rel="canonical" href="https://narendhard.github.io/BetterDiscord-Client/themes.html">
+
+<style>
+/* ====================================================== */
+/* ROOT VARIABLES — identical to index.html               */
+/* ====================================================== */
+:root {
+    --bg:#050816;
+    --bg-alt:#020617;
+    --accent:#6366f1;
+    --accent-soft:rgba(99,102,241,0.18);
+    --accent-strong:#4f46e5;
+    --text:#e5e7f0;
+    --muted:#9ca3af;
+    --border-subtle:rgba(148,163,184,0.3);
+    --glass:rgba(15,23,42,0.86);
+    --shadow-deep:0 26px 70px rgba(0,0,0,0.75);
+
+    --radius-xl:26px;
+    --radius-lg:18px;
+    --radius-pill:999px;
+
+    --t-fast:0.2s ease-out;
+    --t-slow:0.6s ease;
+}
+
+/* ====================================================== */
+/* GLOBAL                                                 */
+/* ====================================================== */
+*{margin:0;padding:0;box-sizing:border-box;}
+
+body {
+    font-family: system-ui,-apple-system,"Inter","SF Pro Text",sans-serif;
+    background: linear-gradient(160deg,#070b16 0%,#020617 70%);
+    color:var(--text);
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+}
+
+/* ====================================================== */
+/* LAYOUT                                                  */
+/* ====================================================== */
+.page {
+    max-width:1120px;
+    margin:0 auto;
+    padding:32px 20px 72px;
+}
+
+/* ====================================================== */
+/* HEADER — FULL COPY FROM index.html                      */
+/* ====================================================== */
+header {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    margin-bottom:40px;
+}
+
+.header-left {
+    display:flex;
+    align-items:center;
+    gap:14px;
+}
+
+.logo-shell {
+    width:44px;
+    height:44px;
+    border-radius:14px;
+    background:linear-gradient(145deg,rgba(15,23,42,.98),rgba(30,64,175,.9));
+    padding:4px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    box-shadow:
+        0 16px 36px rgba(0,0,0,.7),
+        0 0 18px rgba(129,140,248,.35);
+    border:1px solid rgba(148,163,184,.5);
+}
+
+.logo-shell img {
+    width:100%;
+    height:100%;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+.project-meta-title {
+    font-size:1.1rem;
+    font-weight:600;
+    color:#f9fafb;
+    margin-bottom:4px;
+}
+
+.project-badge {
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    padding:5px 12px;
+    border-radius:var(--radius-pill);
+    border:1px solid rgba(148,163,184,.5);
+    font-size:.75rem;
+    color:var(--muted);
+    background: radial-gradient(circle at top left,rgba(15,23,42,.92),rgba(15,23,42,.8));
+    backdrop-filter:blur(16px);
+}
+
+.dot-live {
+    width:7px;
+    height:7px;
+    border-radius:999px;
+    background:#22c55e;
+    box-shadow:0 0 10px rgba(34,197,94,.8);
+}
+
+/* NAVIGATION — identical to index.html */
+nav {
+    display:flex;
+    align-items:center;
+    gap:18px;
+    font-size:.85rem;
+}
+
+nav a {
+    color:var(--muted);
+    text-decoration:none;
+    transition:color var(--t-fast),opacity var(--t-fast),transform var(--t-fast);
+}
+
+nav a:hover {
+    color:#fff;
+    transform:translateY(-1px);
+}
+
+/* ACTIVE PAGE */
+nav a.active {
+    color:#fff;
+    font-weight:600;
+}
+
+/* ====================================================== */
+/* PAGE TITLE                                              */
+/* ====================================================== */
+h1 {
+    font-size:2.6rem;
+    text-align:center;
+    margin:16px 0 60px;
+    line-height:1.2;
+    background:linear-gradient(125deg,#a5b4fc,#60a5fa,#f472b6);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+/* ====================================================== */
+/* THEME CARDS — upgraded with index.html 3D frame         */
+/* ====================================================== */
+.theme-card {
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:34px;
+
+    padding:44px;
+    border-radius:var(--radius-xl);
+    background:var(--glass);
+    border:1px solid var(--border-subtle);
+    box-shadow:var(--shadow-deep);
+    backdrop-filter:blur(18px);
+
+    margin-bottom:80px;
+    transition:var(--t-slow);
+}
+
+.theme-card.reverse {
+    flex-direction:row-reverse;
+}
+
+.theme-card:hover {
+    transform:translateY(-6px);
+    border-color:rgba(129,140,248,.6);
+    box-shadow:
+      0 40px 90px rgba(0,0,0,.9),
+      0 0 60px rgba(129,140,248,.35);
+}
+
+/* TEXT SIDE */
+.theme-info {
+    width:50%;
+}
+
+.theme-info h2 {
+    font-size:1.9rem;
+    margin-bottom:14px;
+    color:white;
+}
+
+.theme-info p {
+    color:#cdd0db;
+    margin-bottom:16px;
+    line-height:1.6;
+}
+
+.theme-info li {
+    margin:6px 0;
+    color:#e5e7f8;
+}
+
+/* ====================================================== */
+/* 3D IMAGE (IDENTICAL TO index.html hero-preview-frame)  */
+/* ====================================================== */
+.preview-3d {
+    width:50%;
+}
+
+.preview-frame {
+    position:relative;
+    border-radius:var(--radius-xl);
+    background:radial-gradient(circle at top,#111827,#020617);
+    border:1px solid var(--border-subtle);
+    padding:10px;
+    overflow:hidden;
+
+    transform:perspective(1300px) rotateY(-15deg) rotateX(4deg);
+    transition:transform var(--t-slow), box-shadow var(--t-slow), border-color var(--t-slow);
+    box-shadow:var(--shadow-deep);
+}
+
+.preview-frame::before {
+    content:"";
+    position:absolute;
+    inset:-40%;
+    background:linear-gradient(120deg,transparent 0%,rgba(248,250,252,.12) 48%,transparent 75%);
+    opacity:0;
+    mix-blend-mode:screen;
+    animation:glare 9s ease-in-out infinite;
+}
+
+@keyframes glare {
+    0%,55%{opacity:0;transform:translateX(-60%);}
+    65%{opacity:1;}
+    100%{opacity:0;transform:translateX(35%);}
+}
+
+.preview-frame img {
+    width:100%;
+    border-radius:calc(var(--radius-xl) - 10px);
+    display:block;
+    transform:scale(1.02);
+    transition:transform var(--t-slow);
+}
+
+.preview-frame:hover {
+    transform:perspective(1300px) rotateY(-6deg) rotateX(2deg) translateY(-4px) scale(1.01);
+    border-color:rgba(129,140,248,.6);
+}
+
+.preview-frame:hover img {
+    transform:scale(1.06);
+}
+
+/* MOBILE */
+@media(max-width:880px){
+    .theme-card,
+    .theme-card.reverse {
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .theme-info,.preview-3d { width:100%; }
+}
+
+/* FOOTER */
+footer {
+    margin-top:60px;
+    text-align:center;
+    font-size:.8rem;
+    color:var(--muted);
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+
+<!-- ====================================================== -->
+<!-- HEADER (full copy from index.html)                     -->
+<!-- ====================================================== -->
+<header>
+    <div class="header-left">
+        <div class="logo-shell">
+            <img src="assets/logo.png" alt="BetterDiscord Logo">
+        </div>
+
+        <div>
+            <div class="project-meta-title">BetterDiscord Client</div>
+            <div class="project-badge">
+                <span class="dot-live"></span>
+                <span>Third-party UI enhancement client for BetterDiscord</span>
+            </div>
+        </div>
+    </div>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="themes.html" class="active">Themes</a>
+        <a href="how-to-install-enhanced-ui.html">Guide</a>
+        <a href="https://github.com/Narendhard/BetterDiscord-Client" target="_blank">GitHub</a>
+    </nav>
+</header>
+
+<!-- ====================================================== -->
+<!-- PAGE TITLE                                             -->
+<!-- ====================================================== -->
+<h1>Premium Discord Themes Showcase</h1>
+
+<!-- ====================================================== -->
+<!-- THEME BLOCKS                                           -->
+<!-- ====================================================== -->
+
+<!-- AZURITE -->
+<div class="theme-card">
+    <div class="theme-info">
+        <h2>Azurite Theme</h2>
+        <p>A glowing cyber-neon Discord interface with turquoise highlights and a clean futuristic layout. Great for dark setups and modern UI lovers.</p>
+        <ul>
+            <li>✔ Neon turquoise glow</li>
+            <li>✔ Cyber aesthetic</li>
+            <li>✔ High readability</li>
+            <li>✔ Modern sharp UI</li>
+        </ul>
+    </div>
+
+    <div class="preview-3d">
+        <div class="preview-frame">
+            <img src="assets/Azurite.png" alt="Azurite Theme">
+        </div>
+    </div>
+</div>
+
+<!-- BLACKPERL -->
+<div class="theme-card reverse">
+    <div class="theme-info">
+        <h2>BlackPerl Theme</h2>
+        <p>Dark purple-focused UI with soft glowing gradients and atmospheric visuals—minimalistic but expressive.</p>
+        <ul>
+            <li>✔ Deep purple cyber look</li>
+            <li>✔ Soft neon glow</li>
+            <li>✔ Clean modern layout</li>
+            <li>✔ Perfect for night mode</li>
+        </ul>
+    </div>
+
+    <div class="preview-3d">
+        <div class="preview-frame">
+            <img src="assets/BlackPerl.png" alt="BlackPerl Theme">
+        </div>
+    </div>
+</div>
+
+<!-- OPERAGX -->
+<div class="theme-card">
+    <div class="theme-info">
+        <h2>OperaGX Theme</h2>
+        <p>Based on the OperaGX browser design — bold red/black contrast, gaming-styled borders and high-impact visuals.</p>
+        <ul>
+            <li>✔ OperaGX inspired UI</li>
+            <li>✔ High contrast</li>
+            <li>✔ Perfect for gamers</li>
+            <li>✔ Crisp borders</li>
+        </ul>
+    </div>
+
+    <div class="preview-3d">
+        <div class="preview-frame">
+            <img src="assets/OperaGX Theme.png" alt="OperaGX Theme">
+        </div>
+    </div>
+</div>
+
+<!-- SNOWIFY -->
+<div class="theme-card reverse">
+    <div class="theme-info">
+        <h2>Snowify Theme</h2>
+        <p>A winter-themed interface with frosty gradients, calm colors and a cozy visual feel perfect for long sessions.</p>
+        <ul>
+            <li>✔ Winter aesthetic</li>
+            <li>✔ Soft UI colors</li>
+            <li>✔ Relaxing for work & study</li>
+            <li>✔ Clean seasonal look</li>
+        </ul>
+    </div>
+
+    <div class="preview-3d">
+        <div class="preview-frame">
+            <img src="assets/Snowify.png" alt="Snowify Theme">
+        </div>
+    </div>
+</div>
+
+<footer>
+    © 2025 BetterDiscord Client • Themes Showcase
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  />
+
+  <title>How to Install BetterDiscord Client — Enhanced Discord UI Guide</title>
+
+  <meta
+    name="description"
+    content="Step-by-step guide on how to install BetterDiscord Client, enable enhanced Discord UI, apply themes like Azurite, BlackPerl, OperaGX, Snowify and keep your BetterDiscord setup clean and organized."
+  />
+
+  <link rel="canonical" href="https://narendhard.github.io/BetterDiscord-Client/how-to-install-enhanced-ui.html" />
+
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #020617;
+      --accent: #6366f1;
+      --accent-soft: rgba(99, 102, 241, 0.18);
+      --accent-strong: #4f46e5;
+      --text: #e5e7f0;
+      --muted: #9ca3af;
+      --border-subtle: rgba(148, 163, 184, 0.3);
+      --glass: rgba(15, 23, 42, 0.86);
+      --shadow-deep: 0 26px 70px rgba(0, 0, 0, 0.75);
+
+      --radius-xl: 26px;
+      --radius-lg: 18px;
+      --radius-pill: 999px;
+
+      --t-fast: 0.2s ease-out;
+      --t-slow: 0.6s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", sans-serif;
+      background: linear-gradient(160deg, #070b16 0%, #020617 70%);
+      color: var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 32px 20px 72px;
+    }
+
+    /* HEADER (как на index.html / themes.html) */
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 40px;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .logo-shell {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: linear-gradient(145deg, rgba(15, 23, 42, 0.98), rgba(30, 64, 175, 0.9));
+      padding: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow:
+        0 16px 36px rgba(0, 0, 0, 0.7),
+        0 0 18px rgba(129, 140, 248, 0.35);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+    }
+
+    .logo-shell img {
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      object-fit: cover;
+    }
+
+    .project-meta-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #f9fafb;
+      margin-bottom: 4px;
+    }
+
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      font-size: 0.75rem;
+      color: var(--muted);
+      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.92), rgba(15, 23, 42, 0.8));
+      backdrop-filter: blur(16px);
+    }
+
+    .dot-live {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 10px rgba(34, 197, 94, 0.8);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      font-size: 0.85rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color var(--t-fast), opacity var(--t-fast), transform var(--t-fast);
+    }
+
+    nav a:hover {
+      color: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    nav a.active {
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    /* HERO GUIDE */
+    .hero-guide {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 26px;
+      align-items: center;
+      margin-bottom: 60px;
+    }
+
+    .hero-guide-main {
+      max-width: 36rem;
+    }
+
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      background: linear-gradient(115deg, rgba(15, 23, 42, 0.95), rgba(30, 64, 175, 0.9));
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin-bottom: 12px;
+    }
+
+    .hero-kicker span.highlight {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-title {
+      font-size: clamp(2.3rem, 3.3vw, 2.9rem);
+      line-height: 1.15;
+      margin-bottom: 10px;
+      background: linear-gradient(125deg, #a5b4fc, #60a5fa, #f472b6);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.95rem;
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .hero-subtitle strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-radius: 14px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      padding: 10px 12px;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.98), #020617);
+    }
+
+    /* 3D GUIDE PREVIEW (та же философия, что hero-preview-frame) */
+    .hero-guide-preview {
+      position: relative;
+      border-radius: var(--radius-xl);
+      background: radial-gradient(circle at top, #111827, #020617);
+      border: 1px solid var(--border-subtle);
+      padding: 10px;
+      box-shadow: var(--shadow-deep);
+      overflow: hidden;
+
+      transform: perspective(1300px) rotateY(-15deg) rotateX(3deg);
+      transition: transform var(--t-slow), box-shadow var(--t-slow), border-color var(--t-slow);
+    }
+
+    .hero-guide-preview::before {
+      content: "";
+      position: absolute;
+      inset: -40%;
+      background: linear-gradient(
+        120deg,
+        transparent 0%,
+        rgba(248, 250, 252, 0.16) 45%,
+        transparent 80%
+      );
+      opacity: 0;
+      mix-blend-mode: screen;
+      animation: guide-glare 9s ease-in-out infinite;
+    }
+
+    @keyframes guide-glare {
+      0%, 55% {
+        opacity: 0;
+        transform: translateX(-60%);
+      }
+      65% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+        transform: translateX(35%);
+      }
+    }
+
+    .hero-guide-preview img {
+      width: 100%;
+      display: block;
+      border-radius: calc(var(--radius-xl) - 10px);
+      transform: scale(1.02);
+      transition: transform var(--t-slow);
+    }
+
+    .hero-guide-preview:hover {
+      transform: perspective(1300px) rotateY(-6deg) rotateX(1.5deg) translateY(-4px) scale(1.01);
+      border-color: rgba(129, 140, 248, 0.6);
+      box-shadow:
+        0 32px 80px rgba(0, 0, 0, 0.9),
+        0 0 50px rgba(129, 140, 248, 0.38);
+    }
+
+    .hero-guide-preview:hover img {
+      transform: scale(1.06);
+    }
+
+    /* SECTION WRAPPER */
+    .section {
+      margin-top: 40px;
+    }
+
+    .section-header {
+      margin-bottom: 18px;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #e5e7eb;
+    }
+
+    /* STEPS GRID */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.9fr);
+      gap: 26px;
+      align-items: flex-start;
+    }
+
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .step-card {
+      border-radius: 18px;
+      background: var(--glass);
+      border: 1px solid var(--border-subtle);
+      padding: 14px 16px 14px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.85);
+    }
+
+    .step-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .step-number {
+      width: 26px;
+      height: 26px;
+      border-radius: 999px;
+      background: radial-gradient(circle at top, #4f46e5, #1d4ed8);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #f9fafb;
+      box-shadow: 0 0 12px rgba(59, 130, 246, 0.8);
+    }
+
+    .step-title {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .step-body {
+      font-size: 0.86rem;
+      color: var(--muted);
+    }
+
+    .step-body strong {
+      color: #e5e7eb;
+      font-weight: 500;
+    }
+
+    /* SIDE INFO CARD */
+    .side-card {
+      border-radius: 18px;
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), #020617);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 16px 16px 14px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      box-shadow: 0 20px 50px rgba(15, 23, 42, 0.9);
+    }
+
+    .side-card h3 {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: #e5e7eb;
+      margin-bottom: 8px;
+    }
+
+    .side-card ul {
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    .side-card li {
+      margin: 4px 0;
+    }
+
+    /* FAQ SECTION */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 14px;
+    }
+
+    .faq-item {
+      border-radius: 16px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.45);
+      padding: 12px 14px 11px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .faq-item h3 {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: #e5e7eb;
+      margin-bottom: 5px;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      margin-top: 32px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 14px;
+      border-radius: 18px;
+      border: 1px solid rgba(248, 250, 252, 0.06);
+      background: radial-gradient(circle at top, rgba(15, 23, 42, 0.96), #020617);
+    }
+
+    .disclaimer strong {
+      color: #e5e7eb;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      justify-content: space-between;
+      opacity: 0.9;
+    }
+
+    footer a {
+      color: #9ca3af;
+      text-decoration: none;
+      border-bottom: 1px dashed rgba(148, 163, 184, 0.6);
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    footer a:hover {
+      color: #e5e7eb;
+      border-bottom-style: solid;
+      border-color: #e5e7eb;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 880px) {
+      .hero-guide {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .steps-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .faq-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-guide-preview {
+        margin-top: 10px;
+        transform: none;
+      }
+
+      .hero-guide-preview:hover {
+        transform: translateY(-3px) scale(1.01);
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <!-- HEADER -->
+    <header>
+      <div class="header-left">
+        <div class="logo-shell">
+          <img src="assets/logo.png" alt="BetterDiscord Client Logo" />
+        </div>
+        <div>
+          <div class="project-meta-title">BetterDiscord Client</div>
+          <div class="project-badge">
+            <span class="dot-live"></span>
+            <span>Third-party UI enhancement client for BetterDiscord</span>
+          </div>
+        </div>
+      </div>
+
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="themes.html">Themes</a>
+        <a href="how-to-install-enhanced-ui.html" class="active">Guide</a>
+        <a href="https://github.com/Narendhard/BetterDiscord-Client" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+      </nav>
+    </header>
+
+    <!-- HERO GUIDE -->
+    <section class="hero-guide">
+      <div class="hero-guide-main">
+        <div class="hero-kicker">
+          <span>Setup guide ·</span>
+          <span class="highlight">Install BetterDiscord Client & enhanced UI</span>
+        </div>
+
+        <h1 class="hero-title">
+          How to install BetterDiscord Client and enable the enhanced Discord UI.
+        </h1>
+
+        <p class="hero-subtitle">
+          This guide walks you through installing <strong>BetterDiscord Client</strong>, running the
+          enhanced UI for Discord, and applying included themes like Azurite, BlackPerl, OperaGX and
+          Snowify. It is written for users who are already familiar with BetterDiscord or are looking
+          for a <strong>cleaner, modern Discord interface</strong>.
+        </p>
+
+        <p class="hero-note">
+          BetterDiscord Client is an independent, third-party UI enhancement client built for
+          BetterDiscord users. Always review Discord’s current Terms of Service and use any
+          third-party tools at your own discretion.
+        </p>
+      </div>
+
+      <div class="hero-guide-preview">
+        <img src="assets/Preview.png" alt="BetterDiscord Client UI installation preview" />
+      </div>
+    </section>
+
+    <!-- SECTION: REQUIREMENTS + BASIC STEPS -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-kicker">Before you start</div>
+        <h2 class="section-title">Requirements and quick overview</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="steps-list">
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <div class="step-title">Check your Discord & OS</div>
+            </div>
+            <div class="step-body">
+              Make sure you have the regular <strong>Discord desktop client</strong> installed and
+              updated on Windows or macOS. BetterDiscord Client is designed as a UI enhancement layer
+              on top of Discord via the BetterDiscord ecosystem.
+            </div>
+          </article>
+
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <div class="step-title">Download BetterDiscord Client</div>
+            </div>
+            <div class="step-body">
+              Go to the official repository:
+              <strong>github.com/Narendhard/BetterDiscord-Client</strong> and download the latest
+              release archive (<code>BetterDiscord.6.23.zip</code> or newer) from the
+              <strong>Releases</strong> section. This ensures that you are using the current version
+              of the client.
+            </div>
+          </article>
+
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <div class="step-title">Unpack into a dedicated folder</div>
+            </div>
+            <div class="step-body">
+              Extract the downloaded archive into a separate folder (for example
+              <code>C:\BetterDiscordClient</code> on Windows). Keeping the client in its own folder
+              makes it easier to update or remove later.
+            </div>
+          </article>
+        </div>
+
+        <aside class="side-card">
+          <h3>Summary: what this guide covers</h3>
+          <p>
+            On this page you will find a <strong>step-by-step installation guide</strong> for the
+            BetterDiscord Client, instructions on how to run the enhanced Discord UI, how to apply
+            included <strong>BetterDiscord themes</strong>, as well as tips for updating and safely
+            removing the client if needed.
+          </p>
+          <ul>
+            <li>Install BetterDiscord Client from the GitHub release</li>
+            <li>Launch the enhanced UI alongside Discord</li>
+            <li>Preview and use themes like Azurite, BlackPerl, OperaGX, Snowify</li>
+            <li>Keep the setup tidy and easy to revert</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION: DETAILED INSTALLATION -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-kicker">Step-by-step</div>
+        <h2 class="section-title">Installing BetterDiscord Client</h2>
+      </div>
+
+      <div class="steps-list">
+        <article class="step-card">
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <div class="step-title">Download the latest BetterDiscord Client build</div>
+          </div>
+          <div class="step-body">
+            Open the GitHub repo:
+            <strong>
+              <a href="https://github.com/Narendhard/BetterDiscord-Client" target="_blank" rel="noopener noreferrer">
+                github.com/Narendhard/BetterDiscord-Client
+              </a>
+            </strong>
+            and go to the <strong>Releases</strong> tab. Download the latest
+            <strong>.zip</strong> archive of the BetterDiscord Client. This ensures that you are
+            getting the most recent fixes, UI changes and improvements to the enhanced Discord
+            experience.
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <div class="step-title">Extract and keep files together</div>
+          </div>
+          <div class="step-body">
+            After downloading, extract the archive into a folder where you keep tools and utilities.
+            Do not scatter files across different locations — keep the entire BetterDiscord Client
+            in one directory so it can load its resources, themes and configuration correctly.
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <div class="step-title">Launch Discord and then BetterDiscord Client</div>
+          </div>
+          <div class="step-body">
+            Start the regular <strong>Discord desktop app</strong> first. Once Discord is running,
+            launch the BetterDiscord Client from the folder where you extracted it. The client is
+            focused on <strong>visual UI enhancement</strong> and a smoother layout for everyday
+            Discord use.
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-header">
+            <div class="step-number">4</div>
+            <div class="step-title">Check that the enhanced UI is active</div>
+          </div>
+          <div class="step-body">
+            When the BetterDiscord Client is running, you should see the updated interface: cleaner
+            layout, refined spacing and a more <strong>premium Discord UI</strong>. If the interface
+            still looks default, close both Discord and the client and start them again in this order:
+            <strong>Discord → BetterDiscord Client</strong>.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION: THEMES -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-kicker">Themes & visuals</div>
+        <h2 class="section-title">Using Azurite, BlackPerl, OperaGX and Snowify</h2>
+      </div>
+
+      <div class="steps-grid">
+        <div class="steps-list">
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-number">1</div>
+              <div class="step-title">Open the themes section inside BetterDiscord Client</div>
+            </div>
+            <div class="step-body">
+              Once the enhanced UI is active, open the part of the interface responsible for
+              <strong>themes or appearance</strong>. BetterDiscord Client is designed to showcase
+              several pre-packaged Discord UI styles such as Azurite, BlackPerl, OperaGX and Snowify
+              so you can quickly see how the UI will look.
+            </div>
+          </article>
+
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-number">2</div>
+              <div class="step-title">Preview the included UI styles</div>
+            </div>
+            <div class="step-body">
+              Each theme is focused on a specific type of <strong>Discord UI customization</strong>:
+              Azurite leans into neon and cyber-style visuals, BlackPerl brings a deep purple night
+              look, OperaGX matches gaming setups, and Snowify offers a calm winter vibe. Use the
+              previews to decide which visual direction fits your workspace or gaming environment.
+            </div>
+          </article>
+
+          <article class="step-card">
+            <div class="step-header">
+              <div class="step-number">3</div>
+              <div class="step-title">Apply a theme that fits your workflow</div>
+            </div>
+            <div class="step-body">
+              After you pick a theme you like, apply it through the client’s appearance or theme
+              section. The goal of the BetterDiscord Client is to keep the <strong>interface clean,
+              legible and focused</strong>, so you can choose the look that works best for long-term
+              daily use.
+            </div>
+          </article>
+        </div>
+
+        <aside class="side-card">
+          <h3>Tip: choosing the right Discord UI style</h3>
+          <p>
+            For a lot of users, the best Discord UI is the one that doesn’t distract from
+            conversations and servers. When using BetterDiscord Client:
+          </p>
+          <ul>
+            <li>Azurite works great for dark multi-monitor setups</li>
+            <li>BlackPerl is ideal if you like deep purple cyber themes</li>
+            <li>OperaGX fits gaming rooms and red/black color schemes</li>
+            <li>Snowify is a good choice for relaxing work and study servers</li>
+          </ul>
+          <p style="margin-top:6px;">
+            You can always switch between themes later, so feel free to experiment until your
+            enhanced Discord UI feels comfortable.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- SECTION: UPDATE & UNINSTALL -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-kicker">Maintenance</div>
+        <h2 class="section-title">Updating or removing BetterDiscord Client</h2>
+      </div>
+
+      <div class="steps-list">
+        <article class="step-card">
+          <div class="step-header">
+            <div class="step-number">1</div>
+            <div class="step-title">Updating the client</div>
+          </div>
+          <div class="step-body">
+            To update, simply download the latest release from the GitHub repository and replace the
+            old BetterDiscord Client folder with the new one. Using the most recent build improves
+            stability and keeps your <strong>enhanced Discord UI</strong> closer to the current
+            design and behavior.
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-header">
+            <div class="step-number">2</div>
+            <div class="step-title">Temporarily stopping the enhanced UI</div>
+          </div>
+          <div class="step-body">
+            If you want to use the default Discord interface, close the BetterDiscord Client and
+            restart Discord. The standard UI should load without the additional styling layer.
+          </div>
+        </article>
+
+        <article class="step-card">
+          <div class="step-header">
+            <div class="step-number">3</div>
+            <div class="step-title">Removing the client</div>
+          </div>
+          <div class="step-body">
+            To fully remove the BetterDiscord Client, close both Discord and the client, then delete
+            the folder where you extracted its files. This returns you to a regular Discord setup
+            without the enhanced UI.
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- SECTION: FAQ -->
+    <section class="section">
+      <div class="section-header">
+        <div class="section-kicker">FAQ</div>
+        <h2 class="section-title">Common questions about BetterDiscord Client</h2>
+      </div>
+
+      <div class="faq-grid">
+        <article class="faq-item">
+          <h3>Is BetterDiscord Client an official Discord application?</h3>
+          <p>
+            No. BetterDiscord Client is an independent, community-driven UI enhancement client for
+            users of BetterDiscord. It is not created, endorsed or officially supported by Discord
+            Inc.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3>Does the client change my Discord account?</h3>
+          <p>
+            The focus of the BetterDiscord Client is on <strong>interface and layout</strong> rather
+            than account-level changes. It is designed as a visual and usability enhancement for
+            people who already use BetterDiscord.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3>Can I switch back to the default Discord UI?</h3>
+          <p>
+            Yes. Close the BetterDiscord Client and restart Discord to use the default interface. If
+            you want to remove the client completely, delete its folder as described in the steps
+            above.
+          </p>
+        </article>
+
+        <article class="faq-item">
+          <h3>Is it safe to use third-party UI clients?</h3>
+          <p>
+            Any third-party tool comes with some level of risk. Always download builds only from the
+            official GitHub repository of the BetterDiscord Client, keep your system secure and make
+            sure to follow Discord’s current Terms of Service.
+          </p>
+        </article>
+      </div>
+
+      <div class="disclaimer">
+        <strong>Important.</strong> BetterDiscord Client is a third-party UI enhancement client
+        created for people who already use BetterDiscord and want a more refined Discord interface.
+        This guide does not encourage breaking any rules on the platform. Always check the current
+        policies of Discord, use third-party tools responsibly and at your own discretion.
+      </div>
+    </section>
+
+    <footer>
+      <span>© 2025 BetterDiscord Client · Enhanced UI & themes guide.</span>
+      <span>
+        Repo:
+        <a href="https://github.com/Narendhard/BetterDiscord-Client" target="_blank" rel="noopener noreferrer">
+          github.com/Narendhard/BetterDiscord-Client
+        </a>
+      </span>
+    </footer>
+  </div>
+</body>
+</html>
